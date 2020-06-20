@@ -48,7 +48,8 @@ resource "aws_subnet" "Elasticsearch_Subnet" {
 # Create Security Group
 resource "aws_security_group" "elasticsearch-sg" {
   name = "elasticsearch-sg"
-
+  vpc_id = aws_vpc.Elasticsearch_VPC.id
+  
   # Inbound for port 9200
   ingress {
     from_port   = 9200
